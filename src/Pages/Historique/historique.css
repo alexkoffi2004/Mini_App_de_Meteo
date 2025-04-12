@@ -1,0 +1,42 @@
+.historique_container{
+    width: 600px;
+    margin: auto;
+    border-radius: 10px;
+    border: solid 1px gray;
+    margin-top: 100px;
+    background-color: rgb(204, 218, 220);
+    text-align: center;
+}
+
+.historique_container h1{
+    margin: 10px 0 25px 0;
+}
+
+.historique_card{
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.historique_card ul li{
+    
+    list-style: none;
+}
+
+.history_list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px;
+    height: 30px;
+    width: 20%;
+    margin: auto;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 1.4rem;
+}

@@ -1,0 +1,70 @@
+body{
+    background-color: rgb(206, 206, 206);
+}
+
+.city_container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, auto);
+    width: 800px;
+    margin: auto;
+    gap: 25px;
+    padding: 100px 0 143px 0;
+    
+}
+
+.city_search{
+    border: solid 1px rgb(206, 206, 240);
+    justify-items: center;
+    background-color: rgb(204, 218, 220);
+    height: 25rem;
+    border-radius: 15px;
+    box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.city_info{
+    border: solid 1px rgb(206, 206, 240);
+    justify-items: center;
+    align-items: start;
+    background-color: rgb(204, 218, 220);
+    border-radius: 15px;
+    box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.city_info_items{
+    margin: 25px 0 20px 0;
+}
+
+form{
+    text-align: center; 
+}
+
+input{
+    margin: 25px 0 20px 0;
+    height: 2rem;
+    width: 20rem;
+    font-size: 1.3rem;
+    border: solid 2px rgb(206, 206, 206);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+button{
+    height: 40px;
+    width: 10rem;
+    font-size: 1.2rem;
+    border: solid 1px rgb(204, 204, 230);
+    border-radius: 7px;
+    background-color: rgb(96, 205, 255);
+    cursor: pointer;
+    transition: backgroubd-color 0.3s ease;
+}
+
+button:hover{
+    background-color: rgb(142, 219, 255);
+}
+
+button:active{
+    transform: scale(0.97);
+}
+
