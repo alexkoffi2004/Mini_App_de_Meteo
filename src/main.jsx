@@ -1,8 +1,10 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import Home from './Pages/Home/home'
+import Home from './Pages/Home/Home'
 import Historique from './Pages/Historique/Historique'
+import {Provider} from 'react-redux'
+import globalStore from './Store/store'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -27,5 +29,7 @@ const router = createBrowserRouter([ // pour informer le naviguateur que le cont
 ]);
 
 createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <Provider store={globalStore}>
+    <RouterProvider router={router} />
+  </Provider>
 )

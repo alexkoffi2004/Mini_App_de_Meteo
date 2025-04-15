@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const API_KEY = "ta_clef_api_ici" // Remplace par ta clé
+const API_KEY = "dcb94e9ffbbc48306e7d1d3ae1a5b791" // Remplace par ta clé
 
 export default function useWeather() {
   const [weatherData, setWeatherData] = useState(null)

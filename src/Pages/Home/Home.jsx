@@ -1,11 +1,13 @@
 import React from 'react'
-import Bouton from '../../components/Button/Button'
+import SearchWeatherCity from '../../components/SearchWeatherCity'
+import WeatherCityInfo from '../../components/WeatherCityInfo'
+import WeatherApp from '../../components/WeatherApp'
 import './Home.css'
 import useWeather from '../../hooks/useWeather'
 import { useState, useEffect } from 'react'
 
 const Home = (props) =>{
-
+  // Historique en localStorage
   const [city, setCity] = useState('')
   const [submittedCity, setSubmittedCity] = useState('')
   const { weatherData, loading, error, fetchWeather } = useWeather()
@@ -21,10 +23,6 @@ const Home = (props) =>{
     }
   }, [submittedCity])
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setSubmittedCity(city.trim())
-  }
 
   const getWeatherClass = (weather) => {
     if (!weather) return "weather-default"
@@ -42,33 +40,12 @@ const Home = (props) =>{
 
   return(
     <>
+      <WeatherApp className='weather'/>
       <div className={getWeatherClass(weatherData)}>
-      <div className='city_container '>
-        <div className='city_search'>
-        <form className='input' onSubmit={handleSubmit}>
-          <input type="text" value={city} onChange={(e) => setCity(e.target.value)}
-          placeholder="Entrez une ville" /> <br />
-          <Bouton type='submit' props={{name:'Recherche'}}/>
-        </form>
+        <div className='city_container '>
+          <SearchWeatherCity city={city} setCity={setCity} setSubmittedCity={setSubmittedCity}/>
+          <WeatherCityInfo weatherData={weatherData} loading={loading} error={error}/>
         </div>
-        <div className='city_info'>
-          <h1 className='city_info_items'>
-            🌤️Info sur la ville
-          </h1>
-            {loading && <p>Chargement...</p>}
-      {error && <p className="">{error}</p>}
-
-      {weatherData && (
-        <div className="">
-          <h2 className="">{weatherData.name}</h2>
-          <p className=""> Country :{weatherData.sys.country}</p>
-          <p>Température : {weatherData.main.temp} °C</p>
-          <p>Météo : {weatherData.weather[0].description}</p>
-        </div>
-      )}
-          
-        </div>
-      </div>
       </div>
 
     </>
