@@ -1,13 +1,10 @@
-import React from 'react'
-import Bouton from '../components/Button/Button'
-
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import fetchWeather from '../utils/actions'
-import useWeather from '../hooks/useWeather'
 
 
 export default function SearchWeatherCity (/*{ city, setCity, setSubmittedCity }*/) {
-  const {city, setCity} = useWeather("")
+  const [city, setCity] = useState("")
   const dispatch = useDispatch()
     const handelFetchWeather = () => {
       dispatch(fetchWeather(city))
@@ -15,16 +12,19 @@ export default function SearchWeatherCity (/*{ city, setCity, setSubmittedCity }
 
     return(
         <div className='city_search'>
-                <form className='input' /*onSubmit={handleSubmit}*/>
+                <div className='input'>
                   <input 
-                    type="text" 
+                    type="text"
+                    id="city"
+                    name="city" 
                     value={city} 
                     onChange={(e) => setCity(e.target.value)}
                     placeholder="Entrez une ville" 
                   /> 
                   <br />
-                  <Bouton handelClick= {() => handelFetchWeather()} type='submit' props={{name:'Recherche'}}/>
-                </form>
+                  {/* <Bouton handelClick= {() => handelFetchWeather()} type='submit' props={{name:'Recherche'}}/> */}
+                  <button onClick={() => handelFetchWeather()}>Recherche</button>
+                </div>
         </div>
     )
 }

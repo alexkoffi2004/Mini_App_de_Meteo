@@ -13,7 +13,7 @@ const setWeather =(data) => ({
         const data = await res.json()
         dispatch(setWeather(data))
     } catch (error) {
-        console.error()
+        console.error("Erreur lors de la récupération des données météo :", error)
     }
   }
 

@@ -9,7 +9,7 @@ const weatherReducer =(state= initialState, action) => {
         case SET_WEATHER:
             return {
                 ...state,
-                data: action.payload,
+                data: action.payload
               };
         default:
             return state;
